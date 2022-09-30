@@ -1,4 +1,4 @@
-/*using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,9 @@ using UnityEngine;
 public class Units : MonoBehaviour
 {
     public string unitName;
-    public UnitHealth unitHealth;
+
+    public int healAmount = 10;
+    public int damageAmount = 20;
 
     void Start()
     {
@@ -15,28 +17,24 @@ public class Units : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))    //Change to bullet attacking
         {
-            PlayerTakesDamage(20);
-            Debug.Log(unitHealth.currentHealth.Health);
+            Damage();
 
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))    //Change to when pickup medkit
         {
-            PlayerTakesDamage(10);
-            Debug.Log(unitHealth.currentHealth.Health);
+            Healing();
 
         }
     }
-
-    private void PlayerTakesDamage(int dmg)
+    public void Damage()
     {
-        unitHealth.currentHealth.dmgUnit(dmg);
+        gameObject.GetComponent<UnitHealth>().currentHealth -= damageAmount;
     }
 
-    private void Playerheals(int heal)
+    public void Healing()
     {
-        unitHealth.currentHealth.healUnit(heal);
+       gameObject.GetComponent<UnitHealth>().currentHealth += healAmount;
     }
 }
-*/

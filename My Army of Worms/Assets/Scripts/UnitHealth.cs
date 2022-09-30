@@ -2,51 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitHealth 
+public class UnitHealth : MonoBehaviour
 {
 
     public int currentHealth;
-    public int currentMaxHealth;
+    public int currentMaxHealth = 20;
 
-    public int Health       //call this when wanting health
-
+   void Start()
     {
-        get { return currentHealth; }
-        set { currentHealth = value; }
+        currentHealth = currentMaxHealth;
     }
 
-   public int MaxHealth
+    void Update()
     {
-        get { return currentMaxHealth; }
-        set { currentMaxHealth = value; }
-    }
-
-   public UnitHealth(int health, int maxHealth)
-    {
-        currentHealth = health;
-        currentMaxHealth = maxHealth;
-    }
-
-    // Damage
-
-    public void dmgUnit(int dmgAmount)
-    {
-        if(currentHealth > 0)
-        {
-            currentHealth -= dmgAmount;
-        }
-    }
-
-    //healing 
-    public void healUnit(int healAmount)
-    {
-        if (currentHealth > currentMaxHealth)
-        {
-            currentHealth += healAmount;
-        }
         if(currentHealth > currentMaxHealth)
         {
             currentHealth = currentMaxHealth;
+        }
+
+        if (currentHealth == 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
