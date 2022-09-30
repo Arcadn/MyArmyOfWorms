@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +6,37 @@ using UnityEngine;
 public class Units : MonoBehaviour
 {
     public string unitName;
-    public int unitLevel;
+    public UnitHealth unitHealth;
 
-    public int damage;
+    void Start()
+    {
 
-    public int maxHP;
-    public int currentHP;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlayerTakesDamage(20);
+            Debug.Log(unitHealth.currentHealth.Health);
+
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlayerTakesDamage(10);
+            Debug.Log(unitHealth.currentHealth.Health);
+
+        }
+    }
+
+    private void PlayerTakesDamage(int dmg)
+    {
+        unitHealth.currentHealth.dmgUnit(dmg);
+    }
+
+    private void Playerheals(int heal)
+    {
+        unitHealth.currentHealth.healUnit(heal);
+    }
 }
+*/
