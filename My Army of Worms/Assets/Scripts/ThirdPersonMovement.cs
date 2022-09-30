@@ -7,7 +7,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
-    public float speed = 6f;
+    public float speed = 1f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public float distance = 2;

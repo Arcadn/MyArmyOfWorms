@@ -6,7 +6,7 @@ public class UnitHealth : MonoBehaviour
 {
 
     public int currentHealth;
-    public int currentMaxHealth = 20;
+    public int currentMaxHealth = 100;
 
    void Start()
     {
